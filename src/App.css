@@ -1,38 +1,56 @@
-.App {
+/* För alla enheter */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0 auto;
+  padding: 0;
+}
+
+header {
+  background-color: #679269;
+  padding: 10px;
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
   color: white;
+  font-size: 20px;
 }
 
-.App-link {
-  color: #61dafb;
-}
+/* Mobilvy: skärmar som är mindre än 768px breda */
+@media only screen and (max-width: 768px) {
+  header {
+    font-size: 18px;
+    padding: 15px;
+  }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  p {
+    font-size: 14px;
   }
-  to {
-    transform: rotate(360deg);
+
+  #basicUsage {
+    font-size: 24px; /* Större klocktext på mobiler */
   }
+
+  /* Anpassa layouten så att allt får plats bra */
+  .App-header {
+    padding: 20px;
+    text-align: center;
+  }
+}
+/* Små mobilskärmar, t.ex. iPhones i stående läge */
+@media only screen and (max-width: 480px) {
+  header {
+    font-size: 16px;
+  }
+
+  p {
+    font-size: 12px;
+  }
+
+  #basicUsage {
+    font-size: 20px;
+  }
+}
+.App-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }

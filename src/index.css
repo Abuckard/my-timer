@@ -1,13 +1,52 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* För alla enheter */
+html, body {
+  height: 100%; /* Gör att hela sidan tar upp 100% av höjden */
+  margin: 0;    /* Ta bort marginaler för att få layouten helt centrerad */
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.App {
+  display: flex;               /* Aktivera Flexbox */
+  justify-content: center;      /* Centrera horisontellt */
+  height: 100vh;                /* Se till att div tar upp hela viewportens höjd */
+  margin-top: 100px;
+}
+
+.App-header {
+  text-align: center;           /* Centrera text i App-header */
+}
+
+/* Mobilvy: skärmar som är mindre än 768px breda */
+@media only screen and (max-width: 768px) {
+  header {
+    font-size: 18px;
+    padding: 15px;
+  }
+
+  p {
+    font-size: 14px;
+  }
+
+  #basicUsage {
+    font-size: 24px; /* Större klocktext på mobiler */
+  }
+
+  /* Anpassa layouten så att allt får plats bra */
+  .App-header {
+    padding: 20px;
+    text-align: center;
+  }
+}
+/* Små mobilskärmar, t.ex. iPhones i stående läge */
+@media only screen and (max-width: 480px) {
+  header {
+    font-size: 16px;
+  }
+
+  p {
+    font-size: 12px;
+  }
+
+  #basicUsage {
+    font-size: 20px;
+  }
 }
