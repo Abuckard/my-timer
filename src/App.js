@@ -106,6 +106,7 @@ import Alarm from './alarm';
 import Texttimer from './text';
 import MenuButton from './menuButton'; // Din menykomponent
 import Timer from 'easytimer.js';
+import Pause from './pause';
 
 function App() {
   const [timerSettings, setTimerSettings] = useState(null);
@@ -129,6 +130,7 @@ function App() {
           <Route path="/digital" element={<Digital timer={timerRef.current} timerSettings={timerSettings} />} />
           <Route path="/analog" element={<Analog timer={timerRef.current} timerSettings={timerSettings} />} />
           <Route path="/text" element={<Texttimer timer={timerRef.current} timerSettings={timerSettings} />} />
+          <Route path="/pause" element={<Pause timer={timerRef.current} timerSettings={timerSettings} />} />
           <Route path="/alarm" element={<Alarm />} />
         </Routes>
       </Router>

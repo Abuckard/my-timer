@@ -35,16 +35,41 @@ function Texttimer({ timer, timerSettings }) {
       });
 
       // Hantera när timern når noll
-      timer.addEventListener('targetAchieved', () => {
-        navigate('/alarm'); // Navigera till Alarm när tiden är slut
-      });
+      timer.addEventListener('targetAchieved', handleTimerEnd);
     }
 
     return () => {
       timer.removeEventListener('secondsUpdated');
       timer.removeEventListener('targetAchieved');
     };
-  }, [timer, navigate]);
+  }, [timer, timerSettings]);
+
+  const handleTimerEnd = () => {
+    if (timerSettings.isInterval) {
+      if (timerSettings.includePause) {
+        // Navigera till paussidan om paus är aktiverad
+        navigate('/pause');
+      } else {
+        // Starta nästa intervall direkt
+        startNextInterval();
+      }
+    } else {
+      navigate('/alarm');
+    }
+  };
+
+  const startNextInterval = () => {
+    timer.start({
+      countdown: true,
+      startValues: {
+        hours: timerSettings.hours,
+        minutes: timerSettings.minutes,
+        seconds: timerSettings.seconds,
+      },
+    });
+
+    timer.addEventListener('targetAchieved', handleTimerEnd);
+  };
 
   const handleStopTimer = () => {
     if (timer) {
@@ -72,4 +97,3 @@ function Texttimer({ timer, timerSettings }) {
 }
 
 export default Texttimer;
-

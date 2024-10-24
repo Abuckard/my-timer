@@ -1,60 +1,64 @@
 /* Centrerar hela loading-skärmen, både vertikalt och horisontellt */
 .loading-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 375px;
-    background-color: #f5f5f5; /* Tillval: Bakgrundsfärg */
-    text-align: center; /* Centrera texten också */
-    position: relative;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 375px;
+  background-color: #f5f5f5; /* Tillval: Bakgrundsfärg */
+  text-align: center; /* Centrera texten också */
+  position: relative;
+}
 
-  
-  /* Skapar ett hjärta */
-  .heart {
-    position: relative;
-    margin-top: 200px;
-    width: 100px;
-    height: 100px;
-    background-color: red;
-    transform: rotate(-45deg);
-    animation: pulse 1.5s infinite;
-    cursor: pointer; /* Indikerar att hjärtat är klickbart */
-    margin-bottom: 20px; /* Lägg till en liten marginal under hjärtat */
+/* Skapar ett hjärta */
+.heart {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  transform: rotate(-45deg);
+  animation: pulse 1.5s infinite;
+  cursor: pointer; /* Indikerar att hjärtat är klickbart */
+  margin-bottom: 20px;
+}
+
+/* Skapar övre delarna av hjärtat */
+.heart::before,
+.heart::after {
+  content: '';
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  border-radius: 50%;
+}
+
+.heart::before {
+  top: -50px;
+  left: 0;
+}
+
+.heart::after {
+  left: 50px;
+  top: 0;
+}
+
+/* Skapar pulserande effekt */
+@keyframes pulse {
+  0% {
+    transform: scale(1) rotate(-45deg);
   }
-  
-  /* Skapar övre delarna av hjärtat */
-  .heart::before,
-  .heart::after {
-    content: '';
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    background-color: red;
-    border-radius: 50%;
+  50% {
+    transform: scale(1.1) rotate(-45deg);
   }
-  
-  .heart::before {
-    top: -50px;
-    left: 0;
+  100% {
+    transform: scale(1) rotate(-45deg);
   }
-  
-  .heart::after {
-    left: 50px;
-    top: 0;
-  }
-  
-  /* Skapar pulserande effekt */
-  @keyframes pulse {
-    0% {
-      transform: scale(1) rotate(-45deg);
-    }
-    50% {
-      transform: scale(1.1) rotate(-45deg);
-    }
-    100% {
-      transform: scale(1) rotate(-45deg);
-    }
-  }
+}
+
+/* När hjärtat är klickat, öka storleken */
+.heart.clicked {
+  animation: none; /* Stoppar den pulserande effekten när klickat */
+  transform: scale(1.5) rotate(-45deg); /* Ökar storleken och behåller rotationen */
+  transition: transform 0.3s ease-in-out;
+}
