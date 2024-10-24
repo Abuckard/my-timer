@@ -118,6 +118,7 @@ function App() {
     }
     setTimerSettings(settings); // Spara inställningarna
   };
+  
 
   return (
     <div className="container">

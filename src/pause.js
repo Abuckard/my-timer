@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './styling/pause.css';  // Länk till CSS-filen
 import { useNavigate } from 'react-router-dom';
 
-function Pause({ timer, onStopPause }) {
+function Pause({ timer }) {
   const [pauseTime, setPauseTime] = useState('00:05:00'); // Exempel på 5 minuters nedräkning
   const navigate = useNavigate();
 
@@ -23,10 +23,20 @@ function Pause({ timer, onStopPause }) {
     }
 
     return () => {
-      timer.removeEventListener('secondsUpdated');
-      timer.removeEventListener('targetAchieved');
+      if (timer) {
+        timer.removeEventListener('secondsUpdated');
+        timer.removeEventListener('targetAchieved');
+      }
     };
   }, [timer, navigate]);
+
+  // Funktion för att stoppa pausen och gå tillbaka till "Set Timer"-vyn
+  const handleStopPause = () => {
+    if (timer) {
+      timer.stop(); // Stoppa timern
+    }
+    navigate('/set-timer'); // Navigera tillbaka till "Set Timer"-vyn
+  };
 
   return (
     <div className="pause-container">
@@ -35,7 +45,7 @@ function Pause({ timer, onStopPause }) {
       <p className="pause-description">
         Time to take a short break! The next interval will start after this pause.
       </p>
-      <button className="pause-stop-button" onClick={onStopPause}>
+      <button className="pause-stop-button" onClick={handleStopPause}>
         Stop Pause
       </button>
     </div>
