@@ -1,0 +1,76 @@
+
+/* Centrerar och strukturerar layouten */
+.set-timer-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centrerar innehållet vertikalt */
+    background-color: #f0f4f8;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  .title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .time-inputs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  label {
+    display: flex;
+    flex-direction: column;
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  input[type="number"] {
+    padding: 10px;
+    font-size: 1.1rem;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    width: 80px;
+    text-align: center;
+    transition: border-color 0.3s;
+  }
+  
+  input[type="number"]:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+  
+  .checkboxes {
+    margin-bottom: 20px;
+  }
+  
+  .checkboxes div {
+    margin-bottom: 10px;
+  }
+  
+  input[type="checkbox"] {
+    margin-right: 10px;
+  }
+  
+  .start-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .start-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .start-button:active {
+    background-color: #004080;
+  }
+  

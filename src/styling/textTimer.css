@@ -1,0 +1,76 @@
+/* Container för Texttimer */
+.text-timer-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #f0f4f8;
+    padding: 20px;
+    box-sizing: border-box;
+    position: relative;
+    min-height: 400px;
+    z-index: 1;
+  }
+  
+  /* Titel för Texttimer */
+  .text-timer-title {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+  }
+  
+  /* Timer-display för siffror och labels */
+  .text-timer-display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  /* Visar siffrorna för timmar, minuter och sekunder på en rad */
+  .time-numbers {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #007bff;
+    margin-bottom: 10px;
+  }
+  
+  /* Texten "hours", "minutes", och "seconds" visas på en rad under */
+  .time-labels {
+    font-size: 1.5rem;
+    color: #333;
+  }
+  
+  /* Separata element för att ge lite mellanrum mellan enheterna */
+  .time-labels span, .time-numbers span {
+    margin: 0 10px;
+  }
+  
+  /* Absolut position för stoppknappen */
+  .stop-button-text {
+    margin-top: 30px;
+    background-color: #dc3545;
+    margin-top: 180px;
+    width: 350px;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .stop-button:hover {
+    background-color: #c82333;
+  }
+  
+  .stop-button:active {
+    background-color: #bd2130;
+  }
+  

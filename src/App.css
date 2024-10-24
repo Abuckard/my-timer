@@ -1,56 +1,29 @@
-/* För alla enheter */
-body {
-  font-family: Arial, sans-serif;
-  margin: 0 auto;
+/* Begränsa sidan till en typisk mobil bredd och centrera den */
+body, html {
+  margin: 0;
   padding: 0;
-}
-
-header {
-  background-color: #679269;
-  padding: 10px;
-  text-align: center;
-  color: white;
-  font-size: 20px;
-}
-
-/* Mobilvy: skärmar som är mindre än 768px breda */
-@media only screen and (max-width: 768px) {
-  header {
-    font-size: 18px;
-    padding: 15px;
-  }
-
-  p {
-    font-size: 14px;
-  }
-
-  #basicUsage {
-    font-size: 24px; /* Större klocktext på mobiler */
-  }
-
-  /* Anpassa layouten så att allt får plats bra */
-  .App-header {
-    padding: 20px;
-    text-align: center;
-  }
-}
-/* Små mobilskärmar, t.ex. iPhones i stående läge */
-@media only screen and (max-width: 480px) {
-  header {
-    font-size: 16px;
-  }
-
-  p {
-    font-size: 12px;
-  }
-
-  #basicUsage {
-    font-size: 20px;
-  }
-}
-.App-header {
+  width: 100%;
+  height: 100%;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+  justify-content: center;  /* Centrera horisontellt */
+  align-items: center;      /* Centrera vertikalt */
+  background-color: #4d4d4d;
+  font-family: Arial, sans-serif;
 }
+
+/* Behåll en mobilbredd */
+.container {
+  width: 375px;
+  max-width: 375px; /* Typisk mobilbredd */
+  height: 667px;
+  margin: 0 auto;
+  background-color: white;
+  position: relative; /* Viktigt för att positionera menyknappen inuti */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  border-radius:  20px ;
+  padding-left: 10px;
+}
+
+/* Menyknappen som är placerad i mitten av ett hörn */
+

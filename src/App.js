@@ -1,71 +1,139 @@
+// import React, { useState, useRef } from 'react';
 // import './App.css';
-
+// import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+// import LoadingScreen from './loading';
+// import SetTimer from './setTimer';
+// import Digital from './digital';
+// import Analog from './analog';
+// import Alarm from './alarm';
+// import Timer from 'easytimer.js'; // Importera easytimer.js
 
 // function App() {
-//   var timer = new Timer();
-// timer.start();
+//   const [timerSettings, setTimerSettings] = useState(null);
+//   const timerRef = useRef(null); // Skapa en gemensam timerinstans med useRef
 
-// timer.addEventListener('secondsUpdated', function (e) {
-//     $('#basicUsage').html(timer.getTimeValues().toString());
-// });
+//   const startTimer = (settings) => {
+//     if (!timerRef.current) {
+//       timerRef.current = new Timer(); // Initiera timern om den inte redan finns
+//     }
+
+//     timerRef.current.start({
+//       countdown: true,
+//       startValues: settings,
+//     });
+
+//     setTimerSettings(settings); // Spara timerinställningarna
+//   };
+
 //   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <p>
-//         <div id="basicUsage">00:00:00</div>
-//         </p>
-//        </header>
+//     <Router>
+//       <Routes>
+//         <Route path="/loading" element={<LoadingScreen />} />
+//         <Route path="/" element={<LoadingScreen />} />
+//         <Route
+//           path="/set-timer"
+//           element={<SetTimer setTimerSettings={startTimer} />}
+//         />
+//         <Route
+//           path="/digital"
+//           element={<Digital timer={timerRef.current} />} // Passa vidare timerinstansen
+//         />
+//         <Route
+//           path="/analog"
+//           element={<Analog timer={timerRef.current} />} // Passa vidare timerinstansen
+//         />
+//         <Route path="/alarm" element={<Alarm />} />
+//       </Routes>
+//     </Router>
+//   );
+// }
+
+// export default App;
+
+// import React, { useState, useRef } from 'react';
+// import './App.css';
+// import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+// import LoadingScreen from './loading';
+// import SetTimer from './setTimer';
+// import Digital from './digital';
+// import Analog from './analog';
+// import Alarm from './alarm';
+// import Timer from 'easytimer.js'; // Importera easytimer.js
+// import MenuButton from './menuButton';
+
+// function App() {
+//   const [timerSettings, setTimerSettings] = useState(null);
+//   const timerRef = useRef(null);
+
+//   const startTimer = (settings) => {
+//     if (!timerRef.current) {
+//       timerRef.current = new Timer();
+//     }
+//     timerRef.current.start({
+//       countdown: true,
+//       startValues: settings,
+//     });
+//     setTimerSettings(settings);
+//   };
+
+//   return (
+//     <div className="container"> {/* Allt innehåll är inom en container */}
+//       <Router>
+//         <MenuButton /> {/* Menyknappen visas alltid */}
+//         <Routes>
+//           <Route path="/loading" element={<LoadingScreen />} />
+//           <Route path="/" element={<LoadingScreen />} />
+//           <Route path="/set-timer" element={<SetTimer setTimerSettings={startTimer} />} />
+//           <Route path="/digital" element={<Digital timer={timerRef.current} />} />
+//           <Route path="/analog" element={<Analog timer={timerRef.current} />} />
+//           <Route path="/alarm" element={<Alarm />} />
+//         </Routes>
+//       </Router>
 //     </div>
 //   );
 // }
 
 // export default App;
 
+import React, { useState, useRef } from 'react';
 import './App.css';
-import { Timer } from './timerCode/clockCode';
-import { useState, useEffect, useRef } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import LoadingScreen from './loading';
+import SetTimer from './setTimer';
+import Digital from './digital';
+import Analog from './analog';
+import Alarm from './alarm';
+import Texttimer from './text';
+import MenuButton from './menuButton'; // Din menykomponent
+import Timer from 'easytimer.js';
 
 function App() {
-  const [time, setTime] = useState('00:00:00');
-  const timerRef = useRef(null); // Skapa en referens för Timer-instansen
+  const [timerSettings, setTimerSettings] = useState(null);
+  const timerRef = useRef(null);
 
-  useEffect(() => {
-    timerRef.current = new Timer(); // Initiera Timer och spara den i ref
-
-    // Stoppa timern om den startas automatiskt vid initiering
-    timerRef.current.stop(); 
-
-    // Lyssna på när sekunderna uppdateras
-    timerRef.current.addEventListener('secondsUpdated', function () {
-      setTime(timerRef.current.getTimeValues().toString());
-    });
-
-    // Cleanup the timer when the component unmounts
-    return () => {
-      timerRef.current.stop();
-    };
-  }, []);
-
-  const handleReset = () => {
-    timerRef.current.stop(); // Stoppa timern
-    setTime('00:00:00'); // Sätt tiden manuellt till "00:00:00"
-    // Vi använder inte timerRef.current.reset() eftersom det startar timern automatiskt
+  const startTimer = (settings) => {
+    if (!timerRef.current) {
+      timerRef.current = new Timer();
+    }
+    setTimerSettings(settings); // Spara inställningarna
   };
 
   return (
-    <div className="App">
-      <div id="basicUsage">{time}</div>
-      <div>
-        <button onClick={() => timerRef.current.start()}>Start</button>
-        <button onClick={() => timerRef.current.pause()}>Pause</button>
-        <button onClick={handleReset}>Reset</button>
-      </div>
+    <div className="container">
+      <Router>
+        <MenuButton />
+        <Routes>
+          <Route path="/loading" element={<LoadingScreen />} />
+          <Route path="/" element={<LoadingScreen />} />
+          <Route path="/set-timer" element={<SetTimer setTimerSettings={startTimer} />} />
+          <Route path="/digital" element={<Digital timer={timerRef.current} timerSettings={timerSettings} />} />
+          <Route path="/analog" element={<Analog timer={timerRef.current} timerSettings={timerSettings} />} />
+          <Route path="/text" element={<Texttimer timer={timerRef.current} timerSettings={timerSettings} />} />
+          <Route path="/alarm" element={<Alarm />} />
+        </Routes>
+      </Router>
     </div>
   );
 }
 
 export default App;
-
-
-
-
