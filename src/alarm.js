@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './styling/alarm.css';
@@ -5,21 +6,19 @@ import './styling/alarm.css';
 function Alarm({ timer }) {
   const navigate = useNavigate();
 
-  // Funktion för att stoppa timern och navigera tillbaka till "Set Timer"
   const handleStopTimer = () => {
     if (timer) {
-      timer.stop(); 
+      timer.stop();
+      timer.removeEventListener('secondsUpdated', () => {}); // Ta bort alla eventlyssnare
+      timer.removeEventListener('targetAchieved', () => {});
     }
-    navigate('/set-timer'); 
+    navigate('/set-timer');
   };
 
   return (
     <div className="alarm-container">
       <h2>Alarm Triggered!</h2>
-      
       <div className="alarm-clock">⏰</div>
-
-      
       <button className="stop-button-alarm" onClick={handleStopTimer} style={{ marginLeft: '10px' }}>Stop Alarm</button>
     </div>
   );

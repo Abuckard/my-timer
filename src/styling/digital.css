@@ -64,12 +64,24 @@
   cursor: pointer;
   transition: background-color 0.3s;
   margin-top: 115px;
+  transform-origin: center; /* Sätter centrum som ursprung för animationen */
 }
-
 .stop-button:hover {
   background-color: #c82333;
 }
 
 .stop-button:active {
   background-color: #bd2130;
+  animation: squash-stretch 0.15s ease forwards;
+}
+@keyframes squash-stretch {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.9, 1.1); /* Komprimeras vertikalt */
+  }
+  100% {
+    transform: scale(1);
+  }
 }

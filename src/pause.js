@@ -8,17 +8,22 @@ function Pause({ timer }) {
 
   useEffect(() => {
     if (timer) {
+      // Stoppa timern först för att säkerställa att inga tidigare inställningar påverkar
+      timer.stop();
+      // Starta timern med en specifik 5-minuters paus
       timer.start({
         countdown: true,
         startValues: { minutes: 5, seconds: 0 },
       });
 
+      // Uppdatera displayen med nuvarande tid för pausen
       timer.addEventListener('secondsUpdated', () => {
         setPauseTime(timer.getTimeValues().toString());
       });
 
+      // När pausen tar slut, navigera tillbaka till Digital-timern
       timer.addEventListener('targetAchieved', () => {
-        navigate('/digital');  // Efter pausen går du tillbaka till digitala vyn
+        navigate('/digital');
       });
     }
 
@@ -30,10 +35,10 @@ function Pause({ timer }) {
     };
   }, [timer, navigate]);
 
-  // Funktion för att stoppa pausen och gå tillbaka till "Set Timer"-vyn
+  // Stoppar pausen och navigerar tillbaka till "Set Timer"-vyn
   const handleStopPause = () => {
     if (timer) {
-      timer.stop(); 
+      timer.stop();
     }
     navigate('/set-timer'); 
   };

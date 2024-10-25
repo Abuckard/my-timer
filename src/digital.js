@@ -1,6 +1,7 @@
+
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './styling/digital.css';  
+import './styling/digital.css';
 
 function Digital({ timer, timerSettings }) {
   const [displayTime, setDisplayTime] = useState('00:00:00');
@@ -8,51 +9,23 @@ function Digital({ timer, timerSettings }) {
 
   useEffect(() => {
     if (timer && timerSettings) {
-      // Starta timern baserat på inställningarna från SetTimer
-      timer.start({
-        countdown: true,
-        startValues: {
-          hours: timerSettings.hours,
-          minutes: timerSettings.minutes,
-          seconds: timerSettings.seconds,
-        },
-      });
+      startOrRestartTimer();
 
-      // Uppdatera displayen när sekunderna uppdateras
-      timer.addEventListener('secondsUpdated', () => {
-        setDisplayTime(timer.getTimeValues().toString());
-      });
-
-      // Hantera när timern når noll
+      timer.addEventListener('secondsUpdated', updateDisplayTime);
       timer.addEventListener('targetAchieved', handleTimerEnd);
     }
 
     return () => {
-      // Rensa eventlyssnare när komponenten avmonteras
+      // Rensa eventlyssnare när komponenten avmonteras eller timern stoppas
       if (timer) {
-        timer.removeEventListener('secondsUpdated');
-        timer.removeEventListener('targetAchieved');
+        timer.removeEventListener('secondsUpdated', updateDisplayTime);
+        timer.removeEventListener('targetAchieved', handleTimerEnd);
       }
     };
   }, [timer, timerSettings]);
 
-  // Här läser vi av om timern ska starta på nytt, pausas eller om alarmet ska gå igång
-  const handleTimerEnd = () => {
-    if (timerSettings.isInterval) {
-      if (timerSettings.includePause) {
-        // Navigera till paussidan om "includePause" är aktiverat
-        navigate('/pause');
-      } else {
-        // Starta nästa intervall direkt utan paus
-        startNextInterval();
-      }
-    } else {
-      navigate('/alarm');
-    }
-  };
-
-  // Starta nästa intervall med samma startvärden
-  const startNextInterval = () => {
+  const startOrRestartTimer = () => {
+    timer.stop();
     timer.start({
       countdown: true,
       startValues: {
@@ -61,13 +34,29 @@ function Digital({ timer, timerSettings }) {
         seconds: timerSettings.seconds,
       },
     });
-    timer.addEventListener('targetAchieved', handleTimerEnd);
   };
 
-  // Funktion för att stoppa timern och navigera tillbaka till "Set Timer", finns säkert ett bättre sätt att göra det på men det här va det enda jag kom på.
+  const updateDisplayTime = () => {
+    setDisplayTime(timer.getTimeValues().toString());
+  };
+
+  const handleTimerEnd = () => {
+    if (timerSettings.isInterval) {
+      if (timerSettings.includePause) {
+        navigate('/pause');
+      } else {
+        startOrRestartTimer();
+      }
+    } else {
+      navigate('/alarm');
+    }
+  };
+
   const handleStopTimer = () => {
     if (timer) {
-      timer.stop(); 
+      timer.stop();
+      timer.removeEventListener('secondsUpdated', updateDisplayTime);
+      timer.removeEventListener('targetAchieved', handleTimerEnd);
     }
     navigate('/set-timer');
   };

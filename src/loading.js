@@ -23,6 +23,7 @@ function LoadingScreen() {
           rotate: 360, // Kontinuerlig rotation
           scale: clicked ? 1.5 : 1, // Förstora vid klick
         }}
+        whileHover={{ scale: 1.3 }} // Förstora vid hover
         transition={{
           repeat: Infinity,
           repeatType: 'loop',
