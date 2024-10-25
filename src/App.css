@@ -7,7 +7,7 @@ body, html {
   display: flex;
   justify-content: center;  
   align-items: center;      
-  background-color: #4d4d4d;
+  background-color: #ffffff;
   font-family: Arial, sans-serif;
 }
 
@@ -17,7 +17,7 @@ body, html {
   max-width: 375px; 
   height: 667px;
   margin: 0 auto;
-  background-color: white;
+  background-color: rgb(173, 173, 173);
   position: relative; 
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   overflow: hidden;

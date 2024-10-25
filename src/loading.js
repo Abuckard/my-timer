@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import './styling/loading.css';
 
 function LoadingScreen() {
   const navigate = useNavigate();
   const [clicked, setClicked] = useState(false);
 
-  // Hanterar klickhändelsen för hjärtat
-  const handleHeartClick = () => {
-    setClicked(true); 
+  const handleStarClick = () => {
+    setClicked(true);
     setTimeout(() => {
       navigate('/set-timer'); // Navigera efter en liten fördröjning
     }, 400); 
@@ -16,11 +16,22 @@ function LoadingScreen() {
 
   return (
     <div className="loading-container">
-      <div
-        className={`heart ${clicked ? 'clicked' : ''}`}
-        onClick={handleHeartClick}
-      ></div>
-      <h2>Welcome to the Timer App</h2>
+      <motion.div
+        className="star"
+        onClick={handleStarClick}
+        animate={{
+          rotate: 360, // Kontinuerlig rotation
+          scale: clicked ? 1.5 : 1, // Förstora vid klick
+        }}
+        transition={{
+          repeat: Infinity,
+          repeatType: 'loop',
+          duration: 2, // Varje rotation tar 2 sekunder
+          ease: 'linear',
+          scale: { type: 'spring', stiffness: 200, damping: 10 }, // Bli större med fjädereffekt
+        }}
+      ></motion.div>
+      <h2 className="loading-text">Welcome to the Timer App</h2>
     </div>
   );
 }

@@ -42,6 +42,7 @@ function Pause({ timer }) {
     <div className="pause-container">
       <h1 className="pause-title">Pause</h1>
       <div className="pause-timer">{pauseTime}</div>
+      <div className="pause-emoji">😪</div>
       <p className="pause-description">
         Time to take a short break! The next interval will start after this pause.
       </p>

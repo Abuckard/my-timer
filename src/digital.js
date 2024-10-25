@@ -76,6 +76,11 @@ function Digital({ timer, timerSettings }) {
     <div className="digital-timer-container">
       <h2 className="digital-title">Digital Timer</h2>
       <div className="timer-display">{displayTime}</div>
+      <div className="emoji-display">
+      <span role="img" aria-label="emoji1" className="emoji">✋</span>
+      <span role="img" aria-label="emoji2" className="emoji">🖐</span>
+      <span role="img" aria-label="emoji3" className="emoji">🖖</span>
+      </div>
       <button className="stop-button" onClick={handleStopTimer}>Stop</button>
     </div>
   );

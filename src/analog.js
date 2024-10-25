@@ -85,7 +85,7 @@ function Analog({ timer, timerSettings }) {
 
   return (
     <div className="analog-clock-container">
-      <h2>Analog Timer</h2>
+      <h2 className='analog-timer'>Analog Timer</h2>
       <div className="clock">
           <motion.div
             className="hand hour-hand"

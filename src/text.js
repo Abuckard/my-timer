@@ -88,7 +88,7 @@ function Texttimer({ timer, timerSettings }) {
 
   return (
     <div className="text-timer-container">
-      <h2 className="text-timer-title">Textual Timer</h2>
+      <h2 className="text-timer-title">Text Timer</h2>
       <div className="text-timer-display">
         <h3>{hoursText} {timeValues.hours === 1 ? 'hour' : 'hours'}</h3>
         <h3>{minutesText} {minutesText === 'one' ? 'minute' : 'minutes'}</h3>

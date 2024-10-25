@@ -1,3 +1,22 @@
+.analog-clock-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color:rgb(173, 173, 173);
+  padding: 20px;
+  box-sizing: border-box;
+  position: relative;
+  min-height: 400px;
+  z-index: 1;
+}
+
+.analog-timer {
+  font-size: 2.5rem;
+  color: #333;
+}
+
+
 .clock {
   position: relative;
   width: 200px;
@@ -6,7 +25,7 @@
   border-radius: 50%;
   margin: 0 auto;
   background-color: white; 
-  margin-top: 100px;
+  margin-top: 40px;
 }
 
 .hand {

@@ -1,48 +1,75 @@
-
 .digital-timer-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background-color: #f0f4f8;
-    padding: 20px;
-    box-sizing: border-box;
-  }
-  
-  .digital-title {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    color: #333;
-  }
-  
-  .timer-display {
-    font-size: 4rem;
-    font-weight: bold;
-    margin-top: 100px;
-    color: #007bff;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-bottom: 30px;
-  }
-  
-  .stop-button {
-    background-color: #dc3545;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 1.2rem;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    margin-top: 150px;
-  }
-  
-  .stop-button:hover {
-    background-color: #c82333;
-  }
-  
-  .stop-button:active {
-    background-color: #bd2130;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(173, 173, 173);
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.digital-title {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.timer-display {
+  font-size: 4rem;
+  font-weight: bold;
+  margin-top: 100px;
+  color: #007bff;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+}
+
+/* Emoji display */
+.emoji-display {
+  font-size: 2.5rem;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  height: 2.5rem; /* Förhindrar layout-hopp */
+  margin-bottom: 5px;
+}
+
+/* Ställer in varje emoji att visas en i taget */
+.emoji {
+  position: absolute;
+  opacity: 0;
+  animation: emoji-cycle 3s infinite;
+}
+
+/* Fördröjningar för att sekvensera varje emoji */
+.emoji:nth-child(1) { animation-delay: 0s; }
+.emoji:nth-child(2) { animation-delay: 1s; }
+.emoji:nth-child(3) { animation-delay: 2s; }
+
+/* Cykelanimation för att visa en emoji i taget */
+@keyframes emoji-cycle {
+  0%, 33% { opacity: 1; }  /* Visar emoji under sin tid */
+  34%, 100% { opacity: 0; } /* Dölj resten av tiden */
+}
+.stop-button {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  width: 350px;
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 115px;
+}
+
+.stop-button:hover {
+  background-color: #c82333;
+}
+
+.stop-button:active {
+  background-color: #bd2130;
+}
