@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import './styling/pause.css';  // Länk till CSS-filen
+import './styling/pause.css'; 
 import { useNavigate } from 'react-router-dom';
 
 function Pause({ timer }) {
-  const [pauseTime, setPauseTime] = useState('00:05:00'); // Exempel på 5 minuters nedräkning
+  const [pauseTime, setPauseTime] = useState('00:05:00'); 
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -33,9 +33,9 @@ function Pause({ timer }) {
   // Funktion för att stoppa pausen och gå tillbaka till "Set Timer"-vyn
   const handleStopPause = () => {
     if (timer) {
-      timer.stop(); // Stoppa timern
+      timer.stop(); 
     }
-    navigate('/set-timer'); // Navigera tillbaka till "Set Timer"-vyn
+    navigate('/set-timer'); 
   };
 
   return (

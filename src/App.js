@@ -104,7 +104,7 @@ import Digital from './digital';
 import Analog from './analog';
 import Alarm from './alarm';
 import Texttimer from './text';
-import MenuButton from './menuButton'; // Din menykomponent
+import MenuButton from './menuButton'; 
 import Timer from 'easytimer.js';
 import Pause from './pause';
 
@@ -116,7 +116,7 @@ function App() {
     if (!timerRef.current) {
       timerRef.current = new Timer();
     }
-    setTimerSettings(settings); // Spara inställningarna
+    setTimerSettings(settings); 
   };
   
 

@@ -1,119 +1,6 @@
-// import React, { useState } from 'react';
-// import { useNavigate } from 'react-router-dom';
-// import './styling/setTimer.css';
-
-// function SetTimer({ setTimerSettings }) {
-//   const [hours, setHours] = useState(0);
-//   const [minutes, setMinutes] = useState(0);
-//   const [seconds, setSeconds] = useState(0);
-//   const navigate = useNavigate();
-
-//   const handleSubmit = () => {
-//     setTimerSettings({ hours, minutes, seconds });  // Skicka timerinställningarna till App.js
-//     navigate('/digital');  // Navigera till Digital vy som standard
-//   };
-
-//   return (
-//     <div>
-//       <h2>Set Timer</h2>
-//       <div className="set-timer-form">
-//         <label className='set-timer-hours'>
-//           Hours:
-//           <input type="number" className='set-timer-hours-input' value={hours} onChange={(e) => setHours(Number(e.target.value))} />
-//         </label>
-//         <label className='set-timer-minutes'>
-//           Minutes:
-//           <input type="number" className='set-timer-minutes-input' value={minutes} onChange={(e) => setMinutes(Number(e.target.value))} />
-//         </label>
-//         <label className='set-timer-seconds'>
-//           Seconds:
-//           <input type="number" className='set-timer-seconds-input' value={seconds} onChange={(e) => setSeconds(Number(e.target.value))} />
-//         </label>
-//       </div>
-//       <button onClick={handleSubmit}>Start Timer</button>
-//     </div>
-//   );
-// }
-
-// export default SetTimer;
-
-
-// import React, { useState } from 'react';
-// import { useNavigate } from 'react-router-dom';
-
-// function SetTimer({ setTimerSettings }) {
-//   const [hours, setHours] = useState(0);
-//   const [minutes, setMinutes] = useState(0);
-//   const [seconds, setSeconds] = useState(0);
-//   const [isInterval, setIsInterval] = useState(false); // Checkbox för intervall
-//   const [includePause, setIncludePause] = useState(false); // Checkbox för paus
-//   const navigate = useNavigate();
-
-//   const handleStartTimer = () => {
-//     const timerSettings = {
-//       hours,
-//       minutes,
-//       seconds,
-//       isInterval,
-//       includePause,
-//     };
-//     setTimerSettings(timerSettings); // Skicka timerinställningar till Digital.js
-//     navigate('/digital'); // Navigera till Digital-timern
-//   };
-
-//   return (
-//     <div>
-//       <h2>Set Timer</h2>
-
-//       {/* Användaren anger timern */}
-//       <label>
-//         Hours:
-//         <input type="number" value={hours} onChange={(e) => setHours(Number(e.target.value))} />
-//       </label>
-//       <br />
-//       <label>
-//         Minutes:
-//         <input type="number" value={minutes} onChange={(e) => setMinutes(Number(e.target.value))} />
-//       </label>
-//       <br />
-//       <label>
-//         Seconds:
-//         <input type="number" value={seconds} onChange={(e) => setSeconds(Number(e.target.value))} />
-//       </label>
-//       <br />
-
-//       {/* Checkbox för intervall */}
-//       <div>
-//         <input
-//           type="checkbox"
-//           id="interval"
-//           checked={isInterval}
-//           onChange={(e) => setIsInterval(e.target.checked)}
-//         />
-//         <label htmlFor="interval">Repeat Timer in Intervals</label>
-//       </div>
-
-//       {/* Checkbox för paus */}
-//       <div>
-//         <input
-//           type="checkbox"
-//           id="pause"
-//           checked={includePause}
-//           onChange={(e) => setIncludePause(e.target.checked)}
-//         />
-//         <label htmlFor="pause">Include 5-minute pause between intervals</label>
-//       </div>
-
-//       <button onClick={handleStartTimer}>Start Timer</button>
-//     </div>
-//   );
-// }
-
-// export default SetTimer;
-
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './styling/setTimer.css';  // Importera CSS-filen
+import './styling/setTimer.css';
 
 function SetTimer({ setTimerSettings }) {
   const [hours, setHours] = useState(0);
@@ -132,7 +19,7 @@ function SetTimer({ setTimerSettings }) {
       includePause,
     };
 
-    // Skicka timerinställningar till Digital.js (eller en annan komponent)
+    // Skicka timerinställningar 
     setTimerSettings(timerSettings);
 
     // Navigera till Digital-timern
@@ -148,8 +35,6 @@ function SetTimer({ setTimerSettings }) {
   return (
     <div className="set-timer-container">
       <h2 className="title">Set Timer</h2>
-
-      {/* Användaren anger timern */}
       <div className="time-inputs">
         <label>
           Hours:
@@ -184,8 +69,6 @@ function SetTimer({ setTimerSettings }) {
           />
         </label>
       </div>
-
-      {/* Checkbox för intervall */}
       <div className="checkboxes">
         <div>
           <input
@@ -202,7 +85,6 @@ function SetTimer({ setTimerSettings }) {
           <label htmlFor="interval">Repeat Timer in Intervals</label>
         </div>
 
-        {/* Checkbox för paus */}
         <div>
           <input
             type="checkbox"

@@ -1,18 +1,18 @@
-/* För alla enheter */
+
 html, body {
-  height: 100%; /* Gör att hela sidan tar upp 100% av höjden */
-  margin: 0;    /* Ta bort marginaler för att få layouten helt centrerad */
+  height: 100%; 
+  margin: 0;    
 }
 
 .App {
-  display: flex;               /* Aktivera Flexbox */
-  justify-content: center;      /* Centrera horisontellt */
-  height: 100vh;                /* Se till att div tar upp hela viewportens höjd */
+  display: flex;              
+  justify-content: center;      
+  height: 100vh;             
   margin-top: 100px;
 }
 
 .App-header {
-  text-align: center;           /* Centrera text i App-header */
+  text-align: center;         
 }
 
 /* Mobilvy: skärmar som är mindre än 768px breda */
@@ -27,16 +27,15 @@ html, body {
   }
 
   #basicUsage {
-    font-size: 24px; /* Större klocktext på mobiler */
+    font-size: 24px;
   }
 
-  /* Anpassa layouten så att allt får plats bra */
   .App-header {
     padding: 20px;
     text-align: center;
   }
 }
-/* Små mobilskärmar, t.ex. iPhones i stående läge */
+
 @media only screen and (max-width: 480px) {
   header {
     font-size: 16px;

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import './styling/analog.css';  // Glöm inte att importera CSS-filen
+import './styling/analog.css'; 
 
 function Analog({ timer, timerSettings }) {
   const [timeValues, setTimeValues] = useState({
@@ -41,10 +41,12 @@ function Analog({ timer, timerSettings }) {
     };
   }, [timer, settings]);
 
+
+   // Här läser vi av om timern ska starta på nytt, pausas eller om alarmet ska gå igång
   const handleTimerEnd = () => {
     if (settings.isInterval) {
       if (settings.includePause) {
-        // Navigera till paussidan om paus är aktiverad
+       
         navigate('/pause');
       } else {
         startNextInterval();
@@ -54,6 +56,7 @@ function Analog({ timer, timerSettings }) {
     }
   };
 
+    // Starta nästa intervall med samma startvärden
   const startNextInterval = () => {
     timer.start({
       countdown: true,
@@ -74,9 +77,11 @@ function Analog({ timer, timerSettings }) {
     navigate('/set-timer');
   };
 
-  const hoursDegree = (timeValues.hours % 12) * 30 + (timeValues.minutes / 2) - 90; // Justera för kl. 12
-  const minutesDegree = timeValues.minutes * 6 - 90; // Justera för kl. 12
-  const secondsDegree = timeValues.seconds * 6 - 90; // Justera för kl. 12
+
+  // Här skriver vi ut timern i analog form
+  const hoursDegree = (timeValues.hours % 12) * 30 + (timeValues.minutes / 2) - 90; 
+  const minutesDegree = timeValues.minutes * 6 - 90; 
+  const secondsDegree = timeValues.seconds * 6 - 90; 
 
   return (
     <div className="analog-clock-container">
@@ -97,7 +102,7 @@ function Analog({ timer, timerSettings }) {
             animate={{ rotate: secondsDegree }}
             transition={{ type: "spring", stiffness: 200 }}
           />
-          {/* Lägg till en cirkel i mitten */}
+        
           <div className="center-circle"></div>
       </div>
       <div className="stop-button-container">

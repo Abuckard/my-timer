@@ -1,4 +1,4 @@
-/* Container för Texttimer */
+
 .text-timer-container {
     display: flex;
     flex-direction: column;
@@ -12,7 +12,7 @@
     z-index: 1;
   }
   
-  /* Titel för Texttimer */
+ 
   .text-timer-title {
     font-size: 2.5rem;
     margin-bottom: 20px;
@@ -20,7 +20,7 @@
     text-align: center;
   }
   
-  /* Timer-display för siffror och labels */
+ 
   .text-timer-display {
     display: flex;
     flex-direction: column;
@@ -32,7 +32,7 @@
     text-align: center;
   }
   
-  /* Visar siffrorna för timmar, minuter och sekunder på en rad */
+ 
   .time-numbers {
     font-size: 3rem;
     font-weight: bold;
@@ -40,18 +40,18 @@
     margin-bottom: 10px;
   }
   
-  /* Texten "hours", "minutes", och "seconds" visas på en rad under */
+  
   .time-labels {
     font-size: 1.5rem;
     color: #333;
   }
   
-  /* Separata element för att ge lite mellanrum mellan enheterna */
+
   .time-labels span, .time-numbers span {
     margin: 0 10px;
   }
   
-  /* Absolut position för stoppknappen */
+ 
   .stop-button-text {
     margin-top: 30px;
     background-color: #dc3545;

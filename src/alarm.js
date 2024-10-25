@@ -8,18 +8,18 @@ function Alarm({ timer }) {
   // Funktion för att stoppa timern och navigera tillbaka till "Set Timer"
   const handleStopTimer = () => {
     if (timer) {
-      timer.stop(); // Stoppa timern om den körs
+      timer.stop(); 
     }
-    navigate('/set-timer'); // Navigera tillbaka till "Set Timer"-sidan
+    navigate('/set-timer'); 
   };
 
   return (
     <div className="alarm-container">
       <h2>Alarm Triggered!</h2>
-      {/* Lägg till en skakande klocka */}
+      
       <div className="alarm-clock">⏰</div>
 
-      {/* Lägg till en knapp för att stoppa timern */}
+      
       <button className="stop-button-alarm" onClick={handleStopTimer} style={{ marginLeft: '10px' }}>Stop Alarm</button>
     </div>
   );

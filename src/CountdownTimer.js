@@ -1,19 +1,19 @@
 import React, { useState, useRef } from 'react';
-import Timer from 'easytimer.js';  // Importera easytimer.js
+import Timer from 'easytimer.js'; 
 
 function CountdownTimer() {
   const [hours, setHours] = useState(0);
   const [minutes, setMinutes] = useState(0);
   const [seconds, setSeconds] = useState(0);
   const [displayTime, setDisplayTime] = useState('00:00:00');
-  const timerRef = useRef(null);  // Använd ref för att spara timer-instansen
+  const timerRef = useRef(null);  
 
   const handleStart = () => {
     if (!timerRef.current) {
-      timerRef.current = new Timer();  // Skapa en ny Timer om det inte finns någon
+      timerRef.current = new Timer(); 
     }
 
-    // Starta nedräkningen med de inställda timmarna, minuterna och sekunderna
+    // Starta nedräkningen
     timerRef.current.start({
       countdown: true,
       startValues: { hours, minutes, seconds }
@@ -24,7 +24,7 @@ function CountdownTimer() {
       setDisplayTime(timerRef.current.getTimeValues().toString());
     });
 
-    // När nedräkningen är klar
+    // Alert används inte men skulle visa att tiden är slut
     timerRef.current.addEventListener('targetAchieved', () => {
       alert('Tiden är slut!');
     });
@@ -40,8 +40,6 @@ function CountdownTimer() {
   return (
     <div>
       <h2>Countdown Timer</h2>
-
-      {/* Input för att ställa in timmar, minuter och sekunder */}
       <div>
         <label>
           Hours:
@@ -83,12 +81,9 @@ function CountdownTimer() {
         </label>
       </div>
 
-      {/* Visning av den återstående tiden */}
       <div>
         <h3>{displayTime}</h3>
       </div>
-
-      {/* Kontrollknappar */}
       <div>
         <button onClick={handleStart}>Start</button>
         <button onClick={handleStop}>Reset</button>

@@ -1,39 +1,39 @@
-/* Container för hela paussidan */
+
 .pause-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
 
-    background-color: #f0f8ff; /* Mjuk blå bakgrundsfärg för en harmonisk känsla */
-    font-family: 'Arial', sans-serif; /* Använd en enkel och läsbar font */
+    background-color: #f0f8ff; 
+    font-family: 'Arial', sans-serif; 
     text-align: center;
   }
   
-  /* Titel på sidan */
+  
   .pause-title {
     font-size: 3rem;
-    color: #333; /* Mörk textfärg för god kontrast */
+    color: #333; 
 
     margin-bottom: 20px;
-    text-transform: uppercase; /* Gör texten versaler */
+    text-transform: uppercase; 
     letter-spacing: 0.1rem;
   }
   
   /* Nedräkningstext */
   .pause-timer {
     font-size: 2.5rem;
-    color: #007bff; /* Blå för att hålla det harmoniskt med bakgrunden */
+    color: #007bff; 
     font-weight: bold;
     margin-bottom: 20px;
   }
   
-  /* Beskrivande text */
+ 
   .pause-description {
     font-size: 1.2rem;
     margin-left: 25px;
     color: #555;
     margin-bottom: 40px;
-    max-width: 80%; /* Gör texten lite smalare och lättläst */
+    max-width: 80%; 
     line-height: 1.6;
   }
   
@@ -41,7 +41,7 @@
   .pause-stop-button {
     padding: 10px 20px;
     font-size: 1.2rem;
-    background-color: #ff6b6b; /* Harmonisk röd färg för att indikera en åtgärd */
+    background-color: #ff6b6b; 
     color: white;
     width: 365px;
     border: none;

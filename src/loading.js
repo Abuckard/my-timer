@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './styling/loading.css'; // Importera din CSS
+import './styling/loading.css';
 
 function LoadingScreen() {
   const navigate = useNavigate();
@@ -8,10 +8,10 @@ function LoadingScreen() {
 
   // Hanterar klickhändelsen för hjärtat
   const handleHeartClick = () => {
-    setClicked(true); // Markera att hjärtat är klickat
+    setClicked(true); 
     setTimeout(() => {
       navigate('/set-timer'); // Navigera efter en liten fördröjning
-    }, 300); // 300ms matchar transition-duration i CSS
+    }, 400); 
   };
 
   return (

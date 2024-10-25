@@ -5,7 +5,7 @@
   border: 10px solid black;
   border-radius: 50%;
   margin: 0 auto;
-  background-color: white; /* Bakgrundsfärg för klockan */
+  background-color: white; 
   margin-top: 100px;
 }
 
@@ -17,7 +17,7 @@
   top: 50%;
   left: 50%;
   transform-origin: 0% 0%;
-  transform: rotate(-90deg); /* Startpunkt är nu kl.12 */
+  transform: rotate(-90deg); /* Startpunkt kl.12 */
 }
 
 .hour-hand {
@@ -38,7 +38,7 @@
   background-color: red;
 }
 
-
+/* Behövs för att man inte ska se att visaren är lite offcenter... */
 .center-circle {
   width: 10px;
   height: 10px;

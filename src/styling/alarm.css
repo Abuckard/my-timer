@@ -1,3 +1,5 @@
+/*    Alarmklockan som skakar   */
+
 @keyframes shake {
     0% { transform: translate(1px, 1px) rotate(0deg); }
     10% { transform: translate(-1px, -2px) rotate(-1deg); }
@@ -21,7 +23,7 @@
   }
   
   .alarm-clock {
-    font-size: 80px; /* Större storlek för att representera en klocka */
+    font-size: 120px; /* Större storlek för att representera en klocka */
     display: inline-block;
     animation: shake 0.8s infinite; /* Animationen ska skaka för evigt */
   }

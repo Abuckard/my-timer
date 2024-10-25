@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './styling/textTimer.css';  // Ny CSS-fil för styling
+import './styling/textTimer.css';
 
 // Funktion för att konvertera siffror till ord
 const numberToWords = (num) => {
@@ -44,6 +44,8 @@ function Texttimer({ timer, timerSettings }) {
     };
   }, [timer, timerSettings]);
 
+
+  // Här läser vi av om timern ska starta på nytt, pausas eller om alarmet ska gå igång
   const handleTimerEnd = () => {
     if (timerSettings.isInterval) {
       if (timerSettings.includePause) {
@@ -58,6 +60,7 @@ function Texttimer({ timer, timerSettings }) {
     }
   };
 
+    // Starta nästa intervall med samma startvärden
   const startNextInterval = () => {
     timer.start({
       countdown: true,
@@ -73,9 +76,9 @@ function Texttimer({ timer, timerSettings }) {
 
   const handleStopTimer = () => {
     if (timer) {
-      timer.stop(); // Stoppa timern
+      timer.stop(); 
     }
-    navigate('/set-timer'); // Navigera tillbaka till "Set Timer"-sidan
+    navigate('/set-timer');
   };
 
   // Konvertera timern till ord

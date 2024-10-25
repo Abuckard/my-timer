@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './styling/digital.css';  // Lägg till en ny CSS-fil för Digital-timern
+import './styling/digital.css';  
 
 function Digital({ timer, timerSettings }) {
   const [displayTime, setDisplayTime] = useState('00:00:00');
@@ -36,7 +36,7 @@ function Digital({ timer, timerSettings }) {
     };
   }, [timer, timerSettings]);
 
-  // Hantera slutet av nedräkningen
+  // Här läser vi av om timern ska starta på nytt, pausas eller om alarmet ska gå igång
   const handleTimerEnd = () => {
     if (timerSettings.isInterval) {
       if (timerSettings.includePause) {
@@ -64,12 +64,12 @@ function Digital({ timer, timerSettings }) {
     timer.addEventListener('targetAchieved', handleTimerEnd);
   };
 
-  // Funktion för att stoppa timern och navigera tillbaka till "Set Timer"
+  // Funktion för att stoppa timern och navigera tillbaka till "Set Timer", finns säkert ett bättre sätt att göra det på men det här va det enda jag kom på.
   const handleStopTimer = () => {
     if (timer) {
-      timer.stop(); // Stoppa timern om den körs
+      timer.stop(); 
     }
-    navigate('/set-timer'); // Navigera tillbaka till "Set Timer"-sidan
+    navigate('/set-timer');
   };
 
   return (

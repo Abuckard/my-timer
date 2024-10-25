@@ -1,4 +1,4 @@
-/* Centrerar layouten och ger utrymme till element */
+
 .digital-timer-container {
     display: flex;
     flex-direction: column;

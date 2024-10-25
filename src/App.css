@@ -1,12 +1,12 @@
-/* Begränsa sidan till en typisk mobil bredd och centrera den */
+/* Begränsar sidan till en typisk mobil bredd och centrera den */
 body, html {
   margin: 0;
   padding: 0;
   width: 100%;
   height: 100%;
   display: flex;
-  justify-content: center;  /* Centrera horisontellt */
-  align-items: center;      /* Centrera vertikalt */
+  justify-content: center;  
+  align-items: center;      
   background-color: #4d4d4d;
   font-family: Arial, sans-serif;
 }
@@ -14,16 +14,14 @@ body, html {
 /* Behåll en mobilbredd */
 .container {
   width: 375px;
-  max-width: 375px; /* Typisk mobilbredd */
+  max-width: 375px; 
   height: 667px;
   margin: 0 auto;
   background-color: white;
-  position: relative; /* Viktigt för att positionera menyknappen inuti */
+  position: relative; 
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   border-radius:  20px ;
   padding-left: 10px;
 }
-
-/* Menyknappen som är placerad i mitten av ett hörn */
 
